@@ -40,9 +40,13 @@ a:hover{
   color: rgb(136, 136, 136);
 } 
 
+.card img{
+  width: 10rem;
+}
+
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   padding: 2rem;
   position: relative;
@@ -50,15 +54,26 @@ footer {
   width: 90%;
   height: 40px;
   margin-top: 2rem;
+  align-items: center;
 }
 
-footer > img{
+.dh-logo{
   width: 200px;
   margin: 0;
 }
+.footer-icons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.footer-icons img{
+  width: 40px;
+  filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.9));
+}
 footer > p{
   margin: 0;
-  padding-top: 0.7rem;
+  padding: 0;
 }
 
 form{

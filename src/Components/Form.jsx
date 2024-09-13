@@ -7,6 +7,7 @@ const Form = () => {
   return (
     <div>
       <form>
+        <input type="text" name="prueba" id="" />
       </form>
     </div>
   );
