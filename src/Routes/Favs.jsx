@@ -6,9 +6,7 @@ import { FaRegSadCry } from "react-icons/fa";
 
 export const Favs = () => {
   const { doctorState } = useDoctorStates();
-
   console.log(doctorState);
-  // Lógica para determinar el tema actual
   
   // Verificar si hay doctores favoritos
   const hasFavorites = doctorState.favs && doctorState.favs.length > 0;
@@ -21,7 +19,6 @@ export const Favs = () => {
         </h1>
       </div>
       <div className="card-grid">
-        {/* Mostrar un mensaje si no hay doctores favoritos */}
         {!hasFavorites ? (
 			
           <div className="no-favorites-message">

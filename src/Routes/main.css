@@ -4,30 +4,28 @@ body {
 		"Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	height: 100vh;
-	width: 100vw;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0 10%;
 }
-/* Estilos para el modo claro */
+
 body.light {
 	background-color: #fff;
 	color: #000;
 }
 
 body.light a {
-	color: black; /* Color de los enlaces en modo claro */
+	color: black;
 }
 
-/* Estilos para el modo oscuro */
+
 body.dark {
 	background-color: rgba(0, 0, 0, 0.5);
 	color: #fff;
 }
 
 body.dark a {
-	color: white; /* Color de los enlaces en modo oscuro */
+	color: white;
 }
 
 h1 {
@@ -50,6 +48,7 @@ nav {
 nav > ul {
 	display: flex;
 	padding: 0;
+	gap: 1rem;
 }
 ul > li {
 	border-radius: 8px;
@@ -145,26 +144,46 @@ footer > p {
 	align-items: center;
 }
 form {
-	background-color: rgba(0, 255, 255, 0.212);
+	background-color: rgb(1, 175, 185);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	align-items: center;
 	max-width: 400px;
 	border-radius: 8px;
 	margin: 0 auto;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	padding: 3rem;
+	width: 50rem;
 }
+form label{
+	font-weight: 600px;
+	font-size: 1.5rem;
+	padding: .8rem 0;
+}
+form input{
+	height: 1rem;
+	border: none;
+	border-radius: 8px;
+	padding: .8rem;
+}
+form button{
+	cursor: pointer;
+	height: 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
 
 .card-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 1rem;
+	justify-items: center;
 }
 .card,
 .card2 {
-	background-color: rgba(0, 255, 255, 0.212);
+	background-color: rgb(1, 175, 185);
 	text-align: center;
 	display: flex;
 	flex-direction: column;

@@ -2,8 +2,6 @@ import { useState } from "react";
 import "../Routes/main.css";
 
 const Form = () => {
-	//Aqui deberan implementar el form completo con sus validaciones
-
 	const [fullname, setFullname] = useState("");
 	const [email, setEmail] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
@@ -45,7 +43,6 @@ const Form = () => {
 		<div className="form-container">
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="fullname">Nombre completo:</label>
-				<br />
 				<input
 					type="text"
 					id="fullname"
@@ -57,7 +54,6 @@ const Form = () => {
 				/>
 				<br />
 				<label htmlFor="email">Email:</label>
-				<br />
 				<input
 					type="email"
 					id="email"
@@ -67,7 +63,7 @@ const Form = () => {
 					required
 				/>
 				<br />
-				<input type="submit" value="Enviar" />
+				<button type="submit" value="Enviar"> Enviar </button>
 			</form>
 			{errorMessage && (
 				<div className="error-message">{errorMessage}</div>

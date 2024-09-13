@@ -2,10 +2,6 @@ import React from "react";
 import Card from "../Components/Card";
 import "./main.css";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
-//hacer el cambio de theme con el button
-
 if (localStorage.getItem("theme") === null) {
 	localStorage.setItem("theme", "light");
 } else if (localStorage.getItem("theme") === "light") {
@@ -23,7 +19,6 @@ export const Home = () => {
 				</h1>
 			</div>
 			<div className="card-grid">
-				{/* Aqui deberias renderizar las cards */}
 				<Card />
 			</div>
 		</main>

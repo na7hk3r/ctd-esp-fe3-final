@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../Routes/main.css";
 import imgHeader from "./assets/images/DH.ico";
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react"; // Importar los íconos de sol y luna desde lucide-react
+import { Sun, Moon } from "lucide-react";
 
 export const changeTheme = (isDarkMode, setIsDarkMode) => {
   const newTheme = isDarkMode ? "light" : "dark";
@@ -15,11 +15,10 @@ export const changeTheme = (isDarkMode, setIsDarkMode) => {
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // useEffect para cargar el tema guardado al iniciar la aplicación
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "light";
     document.body.classList.add(savedTheme);
-    setIsDarkMode(savedTheme === "dark"); // Establecer el estado en base al tema guardado
+    setIsDarkMode(savedTheme === "dark");
   }, []);
 
   return (
@@ -44,9 +43,7 @@ const Navbar = () => {
           <li>
             <Link to="/favs">Favs</Link>
           </li>
-        </ul>
 
-        {/* Botón para cambiar el tema con solo íconos */}
         <button
           onClick={() => changeTheme(isDarkMode, setIsDarkMode)}
           className="theme-toggle-btn"
@@ -54,7 +51,7 @@ const Navbar = () => {
             background: "none",
             border: "none",
             cursor: "pointer",
-            fontSize: "1.5rem", // Tamaño del icono
+            fontSize: "1.5rem",
             display: "flex",
             alignItems: "center",
           }}
@@ -64,8 +61,8 @@ const Navbar = () => {
           ) : (
             <Sun style={{ color: "black" }} />
           )}{" "}
-          {/* Mostrar ícono dinámico con color */}
         </button>
+          </ul>
       </nav>
     </header>
   );
