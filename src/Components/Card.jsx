@@ -1,36 +1,61 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { useDoctorStates } from "./utils/DoctorContext";
+import "../Routes/main.css";
+import avatar from "./assets/images/doctor.jpg";
+import { FaStar } from 'react-icons/fa';
 
-const Card = ({ name, username, id }) => {
+const Card = () => {
+  const { doctorState, doctorDispatch } = useDoctorStates();
 
-  const addFav = () => {
-    const currentFavs = JSON.parse(localStorage.getItem("favDentist")) || [];
+  const addFav = (doctor) => {
+    const isDoctorInFavorites = doctorState.favs
+      .map((favDoctor) => favDoctor.id)
+      .includes(doctor.id);
 
-    const isAlreadyFav = currentFavs.some((fav) => fav.id === id);
-
-    if (!isAlreadyFav) {
-      const newFav = { name, username, id };
-      const updatedFavs = [...currentFavs, newFav];
-      localStorage.setItem("favDentist", JSON.stringify(updatedFavs));
-      alert("¡Agregado a favoritos!");
+    if (isDoctorInFavorites) {
+      doctorDispatch({
+        type: "REMOVE_FAV",
+        payload: doctor,
+      });
     } else {
-      alert("¡Este dentista ya está entre tus favoritos!.");
+      doctorDispatch({
+        type: "ADD_FAV",
+        payload: doctor,
+      });
     }
   };
 
   return (
-    <div className="card">
-      <Link to={`/dentist/${id}`}>
-        <img
-          className="card-img"
-          src="/images/doctor.jpg"
-          alt="profile-pic"
-        />
-        <div className="card-info">
-          <h3>Name: {name}</h3>
-          <h4>User: {username}</h4>
-        </div>
-      </Link>
-      <button onClick={addFav} className="favButton">Agregar a favoritos</button>
+    <div className="card-grid">
+      {doctorState.doctorList.map((doctor) => {
+        const isFavorite = doctorState.favs.some((favDoctor) => favDoctor.id === doctor.id);
+
+        return (
+          <div className="card" key={doctor.id}>
+            <Link to={"/detail/" + doctor.id}>
+              <img src={avatar} alt={doctor.name} />
+              <h3>{doctor.name}</h3>
+              <h4>{doctor.username}</h4>
+            </Link>
+            <button
+              onClick={() => addFav(doctor)}
+              className="favButton"
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              {isFavorite ? (
+                <FaStar color='gold' size={24} />
+              ) : (
+                <FaStar color='darkgray' size={24} />
+              )}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };
