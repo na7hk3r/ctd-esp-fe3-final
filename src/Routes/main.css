@@ -20,7 +20,7 @@ body.light a {
 
 
 body.dark {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgb(31, 41, 55);
 	color: #fff;
 }
 
@@ -58,7 +58,7 @@ ul > li:hover {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 ul > li > a {
-	font-size: 1.75rem;
+	font-size: 1.2rem;
 	padding: 0.25rem 0.5rem;
 }
 a {
@@ -121,17 +121,18 @@ footer {
 	width: 24px; 
 	height: 24px; 
 	object-fit: contain;
+	filter: drop-shadow(0 0 0.2em black);
 }
 
-.powered {
-	margin-top: 20px;
+.digipower {
+	display: flex;
+	justify-content: center;
+	align-content: center;
 }
-
 .dh-logo {
-	width: 200px;
-	height: auto; 
-	margin: 0 auto; 
-	display: block; 
+	width: 10rem;
+    height: fit-content;
+    padding-top: .7em;
 }
 
 footer > p {

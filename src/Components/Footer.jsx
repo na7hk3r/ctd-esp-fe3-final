@@ -38,8 +38,10 @@ const Footer = () => {
           <img src={whatsapp} alt="whatsapp-logo" />
         </a>
       </div>
-      <p className="powered">Powered by</p>
-      <img src={DH} alt="DH-logo" className="dh-logo" />
+      <div className="digipower">
+        <p className="powered">Powered by</p>
+        <img src={DH} alt="DH-logo" className="dh-logo" />
+      </div>
     </footer>
   );
 };
