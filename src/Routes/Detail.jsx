@@ -4,6 +4,7 @@ import { useDoctorStates } from "../Components/utils/DoctorContext";
 import axios from "axios";
 import "../Routes/main.css";
 import avatar from "../Components/assets/images/doctor.jpg";
+import { FaUser, FaEnvelope, FaPhone, FaGlobe, FaArrowLeft } from 'react-icons/fa';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -29,31 +30,22 @@ export const Detail = () => {
 
   return (
     <>
-      <h1>Detail Doctor</h1>
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <div
-        className="card-grid"
-        style={{ display: "grid", placeItems: "center" }}
-      >
+      <h1>Detalles del Doctor</h1>
+      <div className="card-grid">
         {doctorState.doctorDetail.id && (
-          <div
-            className="card2"
-            style={{
-              maxWidth: "350px",
-            }}
-          >
+          <div className="card2">
             <img
               src={avatar}
-              key={doctorState.doctorDetail.id}
-              alt="img-avatar"
+              alt={`Avatar de ${doctorState.doctorDetail.name}`}
             />
-            <h4>Name: {doctorState.doctorDetail.name}</h4>
-            <h5>Email: {doctorState.doctorDetail.email}</h5>
-            <h5>Phone: {doctorState.doctorDetail.phone}</h5>
-            <h5>Website: {doctorState.doctorDetail.website}</h5>
-            <Link to={"/"}>
-              <button>Back to Home</button>
+            <h3><FaUser className="icon" /> {doctorState.doctorDetail.name}</h3>
+            <h4><FaEnvelope className="icon" /> Email: {doctorState.doctorDetail.email}</h4>
+            <h4><FaPhone className="icon" /> Teléfono: {doctorState.doctorDetail.phone}</h4>
+            <h4><FaGlobe className="icon" /> Sitio web: {doctorState.doctorDetail.website}</h4>
+            <Link to="/">
+              <button>
+                <FaArrowLeft className="icon" /> Volver al inicio
+              </button>
             </Link>
           </div>
         )}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Routes/main.css";
+import { FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 
 const Form = () => {
 	const [fullname, setFullname] = useState("");
@@ -15,6 +16,7 @@ const Form = () => {
 			setEmail(value);
 		}
 	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (fullname.length < 6) {
@@ -42,7 +44,7 @@ const Form = () => {
 	return (
 		<div className="form-container">
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="fullname">Nombre completo:</label>
+				<label htmlFor="fullname"><FaUser className="icon" /> Nombre completo:</label>
 				<input
 					type="text"
 					id="fullname"
@@ -53,7 +55,7 @@ const Form = () => {
 					minLength={6}
 				/>
 				<br />
-				<label htmlFor="email">Email:</label>
+				<label htmlFor="email"><FaEnvelope className="icon" /> Email:</label>
 				<input
 					type="email"
 					id="email"
@@ -63,7 +65,9 @@ const Form = () => {
 					required
 				/>
 				<br />
-				<button type="submit" value="Enviar"> Enviar </button>
+				<button type="submit">
+					<FaPaperPlane className="icon" /> Enviar
+				</button>
 			</form>
 			{errorMessage && (
 				<div className="error-message">{errorMessage}</div>

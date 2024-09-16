@@ -1,14 +1,13 @@
-import Footer from "./Components/Footer";
-import Navbar from "./Components/Navbar";
-import { Contact } from "./Routes/Contact";
-import { Detail } from "./Routes/Detail";
-import { Favs } from "./Routes/Favs";
-import { Home } from "./Routes/Home";
+import { Route, Routes } from 'react-router-dom';
 
+import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
+import { Contact } from './Routes/Contact';
+import { Detail } from './Routes/Detail';
+import { Favs } from './Routes/Favs';
+import { Home } from './Routes/Home';
 
-import { Route, Routes } from "react-router-dom";
-
-export function App() {
+export default function App() {
 	return (
 		<>
 			<Navbar />
@@ -22,5 +21,3 @@ export function App() {
 		</>
 	);
 }
-
-export default App;
